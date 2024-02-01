@@ -12,7 +12,7 @@ pub fn wastes() {
     rng.gen_range(1..1000),
     ];
     
-    print!("Траты за неделю по дням [Пн-Вс]: {:?}", wastes);
+    print!("\nТраты за неделю по дням [Пн-Вс]: {:?}", wastes);
     let mut sum = 0;
     
     for i in wastes {
