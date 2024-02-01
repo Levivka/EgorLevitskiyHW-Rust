@@ -1,6 +1,6 @@
 use std::io;
 
-mod W26_01_2024;
+mod w26_01_2024;
 
 fn main() {
     loop {
@@ -12,8 +12,9 @@ fn main() {
     let _ = io::stdin().read_line(&mut buffer);
     match buffer.trim().parse::<i32>() {
         Ok(n) => {    match n {
-            1 => {W26_01_2024::First::wastes()}
-            2 => {W26_01_2024::Second::capital()}
+            1 => {w26_01_2024::first::wastes()}
+            2 => {w26_01_2024::second::capital()}
+            3 => {w26_01_2024::third::currency()}
             _ => print!("\nНеа, такой работки нет\n")
         }},
         Err(_) => print!("\nВведите число в поле ввода \n"),
