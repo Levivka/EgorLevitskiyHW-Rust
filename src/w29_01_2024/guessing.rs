@@ -1,5 +1,4 @@
 use std::io;
-use std::io::Write;
 
 use rand::prelude::*;
 
@@ -43,13 +42,13 @@ pub fn guessing() {
                         attempts -=1;
                     }
                     else {
-                        println!("В яблочко загаданным числом было {}", secret_number);
+                        println!("В яблочко! Загаданным числом было {}", secret_number);
                         break;
                     }
                 }
                 Err(_) => println!("В следующий раз введите целое число от 1 до 9 в консоль.\n"),
             }
-            buffer.clear()
+            buffer.clear();
         }
         else {
             println!("У вас кончились попытки, загаданное число было {}", secret_number);
