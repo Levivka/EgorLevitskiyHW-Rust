@@ -4,6 +4,7 @@ mod w26_01_2024;
 mod w29_01_2024;
 mod w07_02_2024;
 mod w13_02_2024;
+mod w14_02_2024;
 
 fn main() {
     loop {
@@ -30,6 +31,7 @@ fn main() {
             5 => w29_01_2024::guessing::guessing(),
             6 => w07_02_2024::game::play(),
             7 => w13_02_2024::budget::budget_input(),
+            8 => w14_02_2024::alpinist::alpinist_fn(),
             _ => println!("\nНеа, такой работки нет\n")
         }},
         Err(_) => println!("\nВведите число в поле ввода \n"),
