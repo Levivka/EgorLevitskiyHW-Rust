@@ -68,7 +68,7 @@ impl Group {
                 self.recruitment_status = false;
             }
         } else {
-            println!("Набор в группу закрыт\n\n");
+            println!("\nНабор в группу закрыт\n\n");
         }
     }
 
@@ -196,14 +196,33 @@ pub fn alpinist_fn() {
             }
         );
 
-        println!("\nЧтобы вывести информацию о группе введите её номер, для выхода введите 0:\n");
+        loop {
+            println!("\nЧтобы вывести информацию о группе введите её номер, введите 0 чтобы закончить просмотр групп:\n");
+            let mut buffer = String::new();
+            let _ = io::stdin().read_line(&mut buffer);
+            match buffer.trim().parse::<u32>() {
+                Ok(v) => match v {
+                    1 => first_group.display(),
+                    2 => second_group.display(),
+                    3 => third_group.display(),
+                    0 => {
+                        break;
+                    }
+                    _ => println!("\nВведите корректный номер группы!\n"),
+                },
+                Err(_) => println!("В следующий раз введите целое положительное число\n\n"),
+            }
+            buffer.clear();
+        }
+
+        println!("\nЧтобы записаться в группу введите её номер");
         let mut buffer = String::new();
         let _ = io::stdin().read_line(&mut buffer);
         match buffer.trim().parse::<u32>() {
             Ok(v) => match v {
-                1 => first_group.display(),
-                2 => second_group.display(),
-                3 => third_group.display(),
+                1 => first_group.add_member(),
+                2 => second_group.add_member(),
+                3 => third_group.add_member(),
                 0 => {
                     break;
                 }
